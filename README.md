@@ -1,2 +1,2 @@
-BioinformaticsAlgorithm
+Bioinformatics
 =======================
