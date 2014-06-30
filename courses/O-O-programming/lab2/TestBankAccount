@@ -1,0 +1,172 @@
+/**
+*@TestBankAccount
+*
+*Version:
+*       $Id$
+*
+*Revision:
+*       $Log$
+*
+*@author: Kristin Parker (kkp5232)
+*/
+
+/**
+*This class is a test driver for the BankAccount class hierarchy
+*It's purpose is to illustrate the polymorphism avaiable in the BankAccount class hierarchy
+*/
+
+import java.util.ArrayList;
+
+public class TestBankAccount {
+
+        /**
+        *TestBankAccount - constructor
+        */
+        public TestBankAccount() {
+
+
+        }
+
+        /**
+        *main - method
+        */
+        public static void main( java.lang.String[] args ) {
+
+                double totalInterest = 0.0;
+                double totalBalance = 0.0;
+
+
+                //each class(checkingAccount, SavingsAccount, and CDAccount) have their own arrayList
+                ArrayList<CheckingAccount> caList = new ArrayList<CheckingAccount>();
+                ArrayList<SavingsAccount> saList = new ArrayList<SavingsAccount>();
+                ArrayList<CDAccount> cdList = new ArrayList<CDAccount>();
+
+                //inputs the accounts into the checkingAccount and list
+                CheckingAccount account1 = new CheckingAccount(10300.00,"Leonard Hofstadter", true);
+                caList.add(account1);
+
+                CheckingAccount account2 = new CheckingAccount(64665.75,"Shedlon Cooper    ", false);
+                caList.add(account2);
+
+                CheckingAccount account3 = new CheckingAccount(52000.25, "Rajesh Koothrappali", true);
+                caList.add(account3);
+
+                CheckingAccount account4 = new CheckingAccount(1000.89, "Howard Wolowitz     ", false);
+                caList.add(account4);
+
+                CheckingAccount account5 = new CheckingAccount(200.34, "Penny                ", false);
+                caList.add(account5);
+
+
+                //inputs the accounts into the SavingsAccount and list
+                SavingsAccount account6 = new SavingsAccount(23043.50, "Gandalf the Grey");
+                saList.add(account6);
+
+                SavingsAccount account7 = new SavingsAccount(876894.28, "Sauron            ");
+                saList.add(account7);
+
+                SavingsAccount account8 = new SavingsAccount(4.28, "Gollum             ");
+                saList.add(account8);
+
+                SavingsAccount account9 = new SavingsAccount(284.23, "Jack Sparrow");
+                saList.add(account9);
+
+                SavingsAccount account10 = new SavingsAccount(1038.38, "Chewbacca");
+                saList.add(account10);
+
+
+                //inputs the accounts into the CDAccount and list
+                CDAccount account11 = new CDAccount(10389.00, "Dobby The Elf");
+                cdList.add(account11);
+
+                CDAccount account12 = new CDAccount(2849.48, "Severus Snap");
+                cdList.add(account12);
+
+                CDAccount account13 = new CDAccount(10.29, "Ron Wealey");
+                cdList.add(account13);
+
+                CDAccount account14 = new CDAccount(209384.48, "Lord Voldemort");
+                cdList.add(account14);
+
+                CDAccount account15 = new CDAccount(2023.90, "Hedwig The Owl");
+                cdList.add(account15);
+
+
+                /////////////////////////////////////////////////////////
+                //OUTPUTS
+                ////////////////////////////////////////////////////////
+
+                System.out.println("Text below this line represents comments only (not a part of the report). \n ");
+                System.out.println("The data used to generate the above report consisted of the following: \n\n");
+
+                //print the toString for each subClasses
+                for ( int i = 0; i < caList.size(); i++ ) {
+
+                        System.out.println(caList.get(i).toString());
+
+                }
+
+                System.out.println();
+                for ( int i = 0; i < saList.size(); i++ ) {
+
+                        System.out.println(saList.get(i).toString());
+
+                }
+
+                System.out.println();
+
+                for ( int i = 0; i < cdList.size(); i++ ) {
+
+                        System.out.println(cdList.get(i).toString());
+
+                }
+
+
+                System.out.println(" ");
+                System.out.println(" ");
+
+                System.out.println("-----------------------------------------------------------");
+                System.out.println("Interest Report");
+                System.out.println();
+                //for all for loop: calculation the total of interest and the total of balance
+                //print statement for CheckingAccount
+                for ( int i = 0; i < caList.size(); i++ ) {
+
+                        caList.get(i).calcInterest();
+                        caList.get(i).printStatement();
+                        totalInterest += caList.get(i).getInterest();
+                        totalBalance += caList.get(i).getCurrentBalance();
+
+                }
+                //print statement for SavingsAccount
+                for ( int i = 0; i < saList.size(); i++ ) {
+
+                        saList.get(i).calcInterest();
+                        saList.get(i).printStatement();
+                        totalInterest += saList.get(i).getInterest();
+                        totalBalance += saList.get(i).getCurrentBalance();
+
+                }
+                //print statement for CDAccount
+                //print statement for CDAccount
+                for ( int i = 0; i < cdList.size(); i++ ) {
+
+                        cdList.get(i).calcInterest();
+                        cdList.get(i).printStatement();
+                        totalInterest += cdList.get(i).getInterest();
+                        totalBalance += cdList.get(i).getCurrentBalance();
+
+                }
+                System.out.println();
+                System.out.printf("Total interest: %10.2f \n", totalInterest);
+                System.out.printf("Total balances: %10.2f", totalBalance);
+                System.out.println();
+
+
+
+
+
+        }
+
+
+}//end of the TestBankAccount class
